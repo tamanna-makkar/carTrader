@@ -1,0 +1,81 @@
+.sub-level-wrap
+  background: white
+  height: 100%
+  box-shadow: $shadowHubbleDashboard
+  border-radius: 0.5em
+  padding: 1em 0 0
+
+.step1
+  &:before
+    content: "01"
+.step2
+  &:before
+    content: "02"
+.step3
+  &:before
+    content: "03"
+.step4
+  &:before
+    content: "04"
+.common-step
+  display: flex
+  position: relative
+  align-items: center
+  padding: 0 0.6em 0 3.3em
+  &:before
+    position: absolute
+    left: -12px
+    top: 50%
+    transform: translateY(-50%)
+    border-radius: 100%
+    background-color: $colorHubbleGreyLines
+    color: $colorWhite
+    width: 26px
+    text-align: center
+    height: 26px
+    font-size: 13px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-family: 'Lato-semibold'
+  h4
+    font-size: 15px
+    font-family: 'Lato-semibold'
+    line-height: 18px
+    color: $colorHubbleText
+    margin: 0.8em 0
+  &.active
+    &:before
+      background-color: $colorHubbleLightPurple
+      color: $colorHubble
+
+.wizard-inner-wrap
+  h3
+    text-align: center
+    padding: 0 0 3rem 0
+  .titles
+    display: flex
+    flex-direction: column
+    margin: 0 0 3rem 0
+    h3
+      padding: 0
+      margin: 0 0 1rem 0
+    span
+      text-align: center
+  @media screen and (max-width: $mdBreakpoint - 1px)
+    h3, p.sub-heading
+      padding: 0 15px 1.5em 15px
+
+.side-padding
+  @media screen and (max-width: $mdBreakpoint)
+    padding: 0 15px
+
+.wizard-inner-wrap .first-index, .wizard-inner-wrap .last-index
+  position: absolute
+  top: -15px
+
+.wizard-inner-wrap .first-index
+  left: 5px
+
+.wizard-inner-wrap .last-index
+  right: 5px

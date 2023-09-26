@@ -1,0 +1,65 @@
+@import './variables'
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap')
+
+$fonts: '~@/assets/fonts/' !default
+@font-face
+  font-family: Lato
+  src: url('#{$fonts}lato-Regular.ttf') format('truetype')
+@font-face
+  font-family: Lato-semibold
+  src: url('#{$fonts}lato-semibold.ttf') format('truetype')
+@font-face
+  font-family: Lato-bold
+  src: url('#{$fonts}Lato-Bold.ttf') format('truetype')
+@font-face
+  font-family: Lato-black
+  src: url('#{$fonts}lato-Black.ttf') format('truetype')
+@font-face
+  font-family: Lato-Italic
+  src: url('#{$fonts}Lato-Italic.ttf') format('truetype')
+@font-face
+  font-family: Lato-BoldItalic
+  src: url('#{$fonts}Lato-BoldItalic.ttf') format('truetype')  
+
+
+html
+  font-family: Lato
+  font-size: 10px
+
+h2, h4, h5, h6, .h2, .h4, .h5, .h6, p, span, a, :after, :before
+  font-size: 1.6rem
+  line-height: 2.6rem
+
+h1, .h1
+  font-family: Lato-black
+  font-size: 2.8rem
+  line-height: 3.4rem
+  color: $colorHubbleText
+  margin: 0
+
+h3, .h3
+  font-family: Lato-semibold
+  font-size: 1.8rem
+  line-height: 2.2rem
+  margin: 0
+  color: $colorHubbleText
+
+t1, .t1
+  font-family: Lato
+  font-size: 1.6rem
+  line-height: 1.6rem
+  color: $colorHubbleText
+
+t2, .t2
+  font-family: Lato
+  font-size: 1.4rem
+  line-height: 2.2rem
+  color: $colorHubbleText
+
+p
+  margin: 0
+
+button
+  font-size: 1.5rem
+  line-height: 1.8rem
+  color: $colorHubbleText

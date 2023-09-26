@@ -1,0 +1,47 @@
+# REQUIRED REPOSITORY VARIABLES IN BITBUCKET:
+# - DOCKER_HUB_USERNAME
+# - DOCKER_HUB_PASSWORD
+# - DOCKER_HUB_REPO
+
+# REQUIRED DEPLOYMENT VARIABLES IN BITBUCKET:
+# - KUBE_CLUSTER
+# - KUBE_SERVER
+# - KUBE_TOKEN
+# - KUBE_CA
+# - KUBE_DEPLOYMENT_NAME
+# - KUBE_USERNAME
+
+image: atlassian/default-image:2
+
+pipelines:
+  branches:
+    master:
+      - step:
+          services:
+            - docker
+          script: 
+            - export FINAL_IMAGE=$DOCKER_HUB_REPO:$BITBUCKET_BUILD_NUMBER
+            - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
+            - docker build --tag $FINAL_IMAGE .
+            - docker push $FINAL_IMAGE
+
+      - step:
+          name: Deployment dev
+          deployment: dev
+          image: atlassian/pipelines-kubectl
+          script:
+            - ./deploy.sh
+
+      # - step:
+      #     name: Deployment acc
+      #     deployment: acc
+      #     trigger: manual
+      #     image: atlassian/pipelines-kubectl
+      #     script:
+      #       - ./deploy.sh
+
+
+definitions: 
+  services:
+    docker: 
+      memory: 3072
